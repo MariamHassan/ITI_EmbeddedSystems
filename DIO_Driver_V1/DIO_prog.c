@@ -393,13 +393,16 @@ u8 DIO_u8SetPortDirection(u8 Copy_u8PortNum , u8 Copy_u8PortDir){
           DIO_u8_DDRB -> ByteAccess = Copy_u8PortDir;
           Local_u8ErrorStatus = ERROR_OK;
           
-        }else if(Copy_u8PortNum >= DIO_u8_PORT2){
+        }else if(Copy_u8PortNum == DIO_u8_PORT2){
           DIO_u8_DDRC -> ByteAccess = Copy_u8PortDir;
           Local_u8ErrorStatus = ERROR_OK;
           
-        }else{
-           DIO_u8_DDRD -> ByteAccess = Copy_u8PortDir;
+        }else if (Copy_u8PortNum == DIO_u8_PORT3){
+          DIO_u8_DDRD -> ByteAccess = Copy_u8PortDir;
           Local_u8ErrorStatus = ERROR_OK;  
+		
+        }else{
+        	Local_u8ErrorStatus = ERROR_NOK;
         }
     }
  return Local_u8ErrorStatus;  
@@ -426,13 +429,16 @@ u8 DIO_u8SetPortValue(u8 Copy_u8PortNum , u8 Copy_u8PortValue){
           DIO_u8_PORTB -> ByteAccess = Copy_u8PortValue;
           Local_u8ErrorStatus = ERROR_OK;
           
-        }else if(Copy_u8PortNum >= DIO_u8_PORT2){
+        }else if(Copy_u8PortNum == DIO_u8_PORT2){
           DIO_u8_PORTC -> ByteAccess = Copy_u8PortValue;
           Local_u8ErrorStatus = ERROR_OK;
           
-        }else{
-           DIO_u8_PORTD -> ByteAccess = Copy_u8PortValue;
+        }else if(Copy_u8PortNum == DIO_u8_PORT3){
+          DIO_u8_PORTD -> ByteAccess = Copy_u8PortValue;
           Local_u8ErrorStatus = ERROR_OK;  
+	      
+        }else{
+        	Local_u8ErrorStatus = ERROR_NOK;
         }
     }
  return Local_u8ErrorStatus;     
@@ -463,9 +469,12 @@ u8 DIO_u8GetPortValue(u8 Copy_u8PortNum, u8* Copy_u8ValuePtr){
           *(Copy_u8ValuePtr) = (DIO_u8_PINC->ByteAccess);
           Local_u8ErrorStatus = ERROR_OK;
           
-        }else{
+        }else if(Copy_u8PortNum == DIO_u8_PORT3){
           *(Copy_u8ValuePtr) = (DIO_u8_PIND->ByteAccess);
           Local_u8ErrorStatus = ERROR_OK;  
+	      
+        }else{
+          Local_u8ErrorStatus = ERROR_NOK;
         }
     }
  return Local_u8ErrorStatus;   
