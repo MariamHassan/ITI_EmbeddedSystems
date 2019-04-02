@@ -17,7 +17,7 @@
 /* Description       : Activate global interrupt  */
 /* Input Argument(s) : Void                       */
 /* Return            : Void                       */
-void MCU_voidEnableGlobalIntp()
+void MCU_voidEnableGlobalIntp(void)
 {
 	ASSIGN_BIT((MCU_u8_SREG->ByteAccess), (MCU_GIE), (MCU_GIE_ENABLE));
 }
@@ -26,7 +26,7 @@ void MCU_voidEnableGlobalIntp()
 /* Description       : Deactivate global interrupt*/
 /* Input Argument(s) : Void                       */
 /* Return            : Void                       */
-void MCU_voidDisableGlobalIntp()
+void MCU_voidDisableGlobalIntp(void)
 {
 	ASSIGN_BIT((MCU_u8_SREG->ByteAccess), (MCU_GIE), (MCU_GIE_DISABLE));
 }
