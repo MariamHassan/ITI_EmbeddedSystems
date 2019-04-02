@@ -1,1 +1,2 @@
-
+This initial version of timer can operate "timer0" in the "normal mode".
+Preload and over flow count values must be calculated then specified in the configuration file.
