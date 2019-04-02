@@ -15,12 +15,12 @@
 /* Description       : Activate global interrupt  */
 /* Input Argument(s) : Void                       */
 /* Return            : Void                       */
-void MCU_voidEnableGlobalIntp();
+void MCU_voidEnableGlobalIntp(void);
 
 /* Disable                                        */
 /* Description       : Deactivate global interrupt*/
 /* Input Argument(s) : Void                       */
 /* Return            : Void                       */
-void MCU_voidDisableGlobalIntp();
+void MCU_voidDisableGlobalIntp(void);
 
 #endif
